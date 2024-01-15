@@ -1,0 +1,99 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <title>Date and Stat Selection</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+
+        #selectionForm {
+            text-align: center;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        input[type="date"], input[type="submit"], input[type="radio"] {
+            margin-top: 10px;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            display: block;
+            margin: 10px auto;
+        }
+
+        input[type="date"] {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #eee;
+        }
+
+        input[type="submit"], input[type="radio"] {
+            background-color: #4CAF50;
+            color: #fff;
+        }
+
+        input[type="submit"]:hover, input[type="radio"]:hover {
+            background-color: #45a049;
+        }
+
+        .options {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .radio-label {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .date-option label, .date-option input[type="date"] {
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+<div id="selectionForm">
+    <form action="/choice" method="post">
+        <label for="startData">Виберіть дату з початку:</label>
+        <input type="date" id="startData" name="startData" required>
+
+        <label for="finishData">Виберіть дату до кінця:</label>
+        <input type="date" id="finishData" name="finishData" required>
+        <div class="options">
+            <label>Що ви хочете зробити зі статистикою:</label>
+            <label class="radio-label">
+                <input type="radio" name="choice" value="1" required> 1. Отримати середній курс за період.
+            </label>
+            <label class="radio-label">
+                <input type="radio" name="choice" value="2" required> 2. Отримати курс з дати (дд.мм.рррр):
+            </label>
+            <input type="date" name="targetData" id="targetData">
+            <label class="radio-label">
+                <input type="radio" name="choice" value="3"> 3. Отримати максимальний курс за період.
+            </label>
+            <input type="submit" value="Підтвердити">
+        </div>
+    </form>
+</div>
+</div>
+</body>
+</html>
